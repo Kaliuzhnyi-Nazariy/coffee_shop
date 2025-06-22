@@ -42,3 +42,15 @@ h7 {
   background-size: cover;
   background-position: center;
 }
+
+h2 {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.newslatterbg {
+  background-image: url("../../public/coffeerow.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
