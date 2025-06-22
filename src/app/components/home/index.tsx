@@ -1,7 +1,11 @@
 import BookAnEvent from "./BookAnEvent";
+import Footer from "./Footer";
 import Main from "./main";
+import News from "./News";
+import Newslatter from "./Newslatter";
 import OurProductTeaser from "./OurProductTeaser";
 import OurShop from "./OurShop";
+import ReviewsSection from "./reviews";
 
 const HomeComponent = () => {
   return (
@@ -10,6 +14,10 @@ const HomeComponent = () => {
       <OurShop />
       <OurProductTeaser />
       <BookAnEvent />
+      <ReviewsSection />
+      <News />
+      <Newslatter />
+      <Footer />
     </main>
   );
 };
