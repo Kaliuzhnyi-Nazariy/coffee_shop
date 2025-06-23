@@ -8,7 +8,7 @@ const Main = () => {
       </div>
       <div className="absolute top-[164px] left-[20px] transform w-[220px] text-wrap z-[2]">
         <h2 className="text-white text-2xl uppercase">
-          life is not better{" "}
+          life is not better
           <span className="font-medium text-[14px]">without coffee</span>
         </h2>
         <button className="mt-4 px-[15px] py-[10px] bg-white text-black rounded-4xl h-[34px] font-semibold text-[8px] w-[73px]">
