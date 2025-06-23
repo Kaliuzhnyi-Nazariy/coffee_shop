@@ -1,11 +1,11 @@
 import BookAnEvent from "./BookAnEvent";
 import Footer from "./Footer";
 import Main from "./main";
-import News from "./News";
+import News from "./news/News";
 import Newslatter from "./Newslatter";
 import OurProductTeaser from "./OurProductTeaser";
 import OurShop from "./OurShop";
-import ReviewsSection from "./reviews";
+import ReviewsSection from "./reviews/Reviews";
 
 const HomeComponent = () => {
   return (
