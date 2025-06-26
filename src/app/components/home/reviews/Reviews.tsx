@@ -41,7 +41,7 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section className="mt-[45px] px-5">
+    <section className="mt-[45px] flex justify-center flex-col px-5">
       <h2 className="text-[18px] font-semibold w-[200px]">
         See what <span className="text-[#EC8B1E]">others are saying</span>.
       </h2>
