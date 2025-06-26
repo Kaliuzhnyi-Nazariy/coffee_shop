@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       "cdn.jsdelivr.net",
       "avatars.githubusercontent.com",
       "picsum.photos",
+      "loremflickr.com",
+      "i.ibb.co",
     ],
   },
 };
