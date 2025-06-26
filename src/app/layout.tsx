@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import ReduxLayout from "./redux/ReduxLayout";
+import Menu from "./components/home/menu/Menu";
+import Footer from "./components/home/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +35,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
+        id="root"
       >
-        {children}
+        <ReduxLayout>
+          <Menu />
+          {children}
+          <Footer />
+        </ReduxLayout>
       </body>
     </html>
   );

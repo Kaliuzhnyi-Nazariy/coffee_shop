@@ -1,5 +1,3 @@
-import { IoIosMenu } from "react-icons/io";
-
 const Main = () => {
   return (
     <section className="relative w-full h-[412px] mx-auto main-header">
@@ -15,9 +13,6 @@ const Main = () => {
           Order now
         </button>
       </div>
-      <button className="absolute top-5 right-[25px] text-white w-[25px] h-[25px] flex justify-center items-center z-[2]">
-        <IoIosMenu />
-      </button>
     </section>
   );
 };
