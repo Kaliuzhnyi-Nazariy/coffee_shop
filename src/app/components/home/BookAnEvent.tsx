@@ -13,7 +13,7 @@ const BookAnEvent = () => {
           className="object-cover w-full scale-x-[-1] z-[1]"
         />
       </div>
-      <div className="z-[3] relative px-5 pt-[30px] text-white w-[250px]">
+      <div className="z-[3] relative flex justify-center px-5 flex-col pt-[30px] text-white w-[250px]">
         <h2 className="text-[20px] font-semibold">
           Request an order for your private party or event?
         </h2>

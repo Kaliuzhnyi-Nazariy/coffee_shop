@@ -3,8 +3,13 @@ import React from "react";
 
 const OurShop = () => {
   return (
-    <section className="relative px-5 w-full h-[227px] mt-9">
-      <Image src="/Woodenback.png" alt="wooden" fill className="px-5" />
+    <section className="relative flex justify-center flex-col px-5 w-full h-[227px] mt-9">
+      <Image
+        src="/Woodenback.png"
+        alt="wooden"
+        fill
+        className="flex justify-center px-5"
+      />
       <Image
         src="/cafelogo.png"
         alt="cafe logo"

@@ -1,6 +1,6 @@
 const Newslatter = () => {
   return (
-    <section className="px-5 mt-[45px] newslatterbg w-full pt-3 pb-8">
+    <section className="flex justify-center flex-col px-5 mt-[45px] newslatterbg w-full pt-3 pb-8">
       <h2 className="text-white">Newslatter</h2>
       <p className="w-[185px] text-white text-[12px] mt-2">
         Subscribe and get 20% off your first purchase

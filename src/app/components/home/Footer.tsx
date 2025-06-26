@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#2B2B2B] px-5 pt-[30px] pb-4 text-white text-[8px]">
+    <footer className="bg-[#2B2B2B] flex justify-center flex-col px-5 pt-[30px] pb-4 text-white text-[8px]">
       <Image src="/cafelogo.png" alt="logo of cafe" width={34} height={52} />
       <ul className="mt-2">
         <li>
