@@ -1,9 +1,8 @@
 import BookAnEvent from "./BookAnEvent";
-import Footer from "./Footer";
 import Main from "./main";
 import News from "./news/News";
 import Newslatter from "./Newslatter";
-import OurProductTeaser from "./OurProductTeaser";
+import OurProductTeaser from "./ProductTeaser/OurProductTeaser";
 import OurShop from "./OurShop";
 import ReviewsSection from "./reviews/Reviews";
 
@@ -17,7 +16,6 @@ const HomeComponent = () => {
       <ReviewsSection />
       <News />
       <Newslatter />
-      <Footer />
     </main>
   );
 };
