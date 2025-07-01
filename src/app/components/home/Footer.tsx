@@ -1,9 +1,18 @@
+"use client";
+
+import { userIsLoggedIn } from "@/app/redux/user/selectors";
 import Image from "next/image";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const isShown = useSelector(userIsLoggedIn);
   return (
-    <footer className="bg-[#2B2B2B] flex justify-center flex-col px-5 pt-[30px] pb-4 text-white text-[8px]">
+    <footer
+      className={`bg-[#2B2B2B] justify-center flex-col px-5 pt-[30px] pb-4 text-white text-[8px] ${
+        isShown ? "flex" : "hidden"
+      }`}
+    >
       <Image src="/cafelogo.png" alt="logo of cafe" width={34} height={52} />
       <ul className="mt-2">
         <li>
