@@ -1,4 +1,5 @@
 import mongoose, { Types } from "mongoose";
+import { IProducts } from "./products/typesOrInterfaces";
 
 export type PaymentMethod = {
   type: "card" | "paypal";
@@ -15,11 +16,12 @@ export type PaymentMethod = {
 };
 
 export interface UserResult {
-  _id: mongoose.Types.ObjectId;
+  _id: mongoose.Types.ObjectId | null;
   name: string;
   phoneNumber: string;
-  favorites: string[] | undefined;
+  favorites: IProducts[] | undefined;
   location: string | undefined;
-  paymentMethods: PaymentMethod[] | undefined;
+  cart: IProducts[];
+  paymentMethods: PaymentMethod[];
   [key: string]: unknown;
 }

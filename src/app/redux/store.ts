@@ -9,10 +9,12 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
+import { userReducer } from "./user/slice";
 
 export const store = configureStore({
   reducer: {
     products: productsReducer,
+    user: userReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
