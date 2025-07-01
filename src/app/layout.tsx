@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import ReduxLayout from "./redux/ReduxLayout";
+import ReduxLayout from "./layouts/ReduxLayout";
 import Menu from "./components/home/menu/Menu";
 import Footer from "./components/home/Footer";
+import ReactQueryLayout from "./layouts/ReactQueryLayout";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,9 +40,12 @@ export default function RootLayout({
         id="root"
       >
         <ReduxLayout>
-          <Menu />
-          {children}
-          <Footer />
+          <ReactQueryLayout>
+            <Menu />
+            <Toaster position="top-right" reverseOrder={false} />
+            {children}
+            <Footer />
+          </ReactQueryLayout>
         </ReduxLayout>
       </body>
     </html>
