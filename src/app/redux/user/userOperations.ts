@@ -18,7 +18,7 @@ export const getUser = createAsyncThunk<
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response.data.message || error.message
+      error.response.data.message || error.response.data || error.message
     );
   }
 });
@@ -36,7 +36,7 @@ export const updateUser = createAsyncThunk<
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response.data.message || error.message
+      error.response.data.message || error.response.data || error.message
     );
   }
 });
@@ -54,7 +54,7 @@ export const deleteUser = createAsyncThunk<
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response.data.message || error.message
+      error.response.data.message || error.response.data || error.message
     );
   }
 });
@@ -72,7 +72,7 @@ export const addFavorites = createAsyncThunk<
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response.data.message || error.message
+      error.response.data.message || error.response.data || error.message
     );
   }
 });
@@ -90,7 +90,7 @@ export const removeFavorites = createAsyncThunk<
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response.data.message || error.message
+      error.response.data.message || error.response.data || error.message
     );
   }
 });
@@ -108,7 +108,7 @@ export const addPayment = createAsyncThunk<
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response.data.message || error.message
+      error.response.data.message || error.response.data || error.message
     );
   }
 });
@@ -126,7 +126,7 @@ export const removePayment = createAsyncThunk<
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response.data.message || error.message
+      error.response.data.message || error.response.data || error.message
     );
   }
 });
