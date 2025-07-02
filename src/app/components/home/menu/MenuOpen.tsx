@@ -6,9 +6,20 @@ import { IoMdClose } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
 import { FaRegBell, FaBagShopping } from "react-icons/fa6";
 import { FaRegHeart, FaRegCopyright } from "react-icons/fa";
+import { useAppDispatch } from "@/app/redux/hooks";
+import { getUser } from "@/app/redux/user/userOperations";
+import { useSelector } from "react-redux";
+import { userInfo } from "@/app/redux/user/selectors";
 
 const MenuOpen = ({ onClose }: { onClose: () => void }) => {
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
+  const user = useSelector(userInfo);
 
   useEffect(() => {
     setPortalRoot(document.getElementById("root"));
@@ -31,7 +42,7 @@ const MenuOpen = ({ onClose }: { onClose: () => void }) => {
           <div className="relative w-full h-full flex flex-col items-center">
             <button className="w-full flex flex-col items-center mt-12">
               <div className="bg-white w-10 h-10 rounded-full"></div>
-              <p className="text-[12px]">username</p>
+              <p className="text-[12px]">{user.name || "No data"} </p>
             </button>
             <div className="flex gap-1 w-full justify-center mt-3">
               <Image
@@ -40,7 +51,9 @@ const MenuOpen = ({ onClose }: { onClose: () => void }) => {
                 width={24}
                 height={24}
               />
-              <p className="text-[14px] font-semibold">location</p>
+              <p className="text-[14px] font-semibold">
+                {user.location || "No data"}
+              </p>
             </div>
             <div className="w-[269px] mt-6 relative h-10">
               <input
