@@ -19,7 +19,7 @@ export interface UserResult {
   _id: mongoose.Types.ObjectId | null;
   name: string;
   phoneNumber: string;
-  favorites: IProducts[] | undefined;
+  favorites: IProducts[];
   location: string | undefined;
   cart: IProducts[];
   paymentMethods: PaymentMethod[];

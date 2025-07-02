@@ -158,7 +158,7 @@ const userSlice = createSlice({
           action: PayloadAction<{ favorites: IProducts[] | undefined }>
         ) => {
           state.isLoading = false;
-          state.user.favorites = action.payload.favorites;
+          state.user.favorites = action.payload.favorites || [];
         }
       )
       .addCase(
@@ -180,7 +180,7 @@ const userSlice = createSlice({
           action: PayloadAction<{ favorites: IProducts[] | undefined }>
         ) => {
           state.isLoading = false;
-          state.user.favorites = action.payload.favorites;
+          state.user.favorites = action.payload.favorites || [];
         }
       )
       .addCase(
