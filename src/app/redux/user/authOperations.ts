@@ -34,8 +34,6 @@ export const signIn = createAsyncThunk<
       withCredentials: true,
     });
 
-    console.log({ res });
-
     return res.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
