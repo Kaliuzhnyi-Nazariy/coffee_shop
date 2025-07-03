@@ -1,11 +1,53 @@
+"use client";
+
+import { useAppDispatch } from "@/app/redux/hooks";
 import { IProducts } from "@/app/redux/products/typesOrInterfaces";
+import { addFavorites, removeFavorites } from "@/app/redux/user/userOperations";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FaStar } from "react-icons/fa6";
-import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { RiDiscountPercentLine } from "react-icons/ri";
 
-const ProductBasic = ({ productInfo }: { productInfo: IProducts }) => {
+const ProductBasic = ({
+  productInfo,
+  isFavorite,
+}: // addFav,
+// removeFav,
+{
+  productInfo: IProducts;
+  isFavorite: IProducts[];
+  // addFav: ({ id, prod }: { id: string; prod: IProducts }) => void;
+  // removeFav: (id: string) => void;
+}) => {
+  const [isFav, setFav] = useState(false);
+
+  const dispatch = useAppDispatch();
+
+  const addFav = async ({ id, prod }: { id: string; prod: IProducts }) => {
+    await dispatch(addFavorites({ goodId: id, prodData: prod }));
+    setFav(true);
+    return;
+  };
+
+  const removeFav = async (id: string) => {
+    await dispatch(removeFavorites(id))
+      .unwrap()
+      .then(() => {
+        setFav(false);
+      })
+      .catch((err) => {
+        toast.error(err);
+      });
+
+    return;
+  };
+
+  useEffect(() => {
+    setFav(Boolean(isFavorite.find((fav) => fav.id == productInfo.id)));
+  }, [isFavorite, productInfo.id]);
+
   return (
     <div className="flex justify-center flex-col px-5">
       <h2 className="h-[66px] flex items-center">{productInfo?.title}</h2>
@@ -50,8 +92,21 @@ const ProductBasic = ({ productInfo }: { productInfo: IProducts }) => {
               )}
             </span>
           </div>
-          <button className="flex content-start">
-            <MdFavoriteBorder />
+          <button
+            className="flex content-start hover:cursor-pointer"
+            onClick={() => {
+              if (isFav) {
+                removeFav(productInfo.id);
+              } else {
+                addFav({ id: productInfo.id, prod: productInfo });
+              }
+            }}
+          >
+            {isFav ? (
+              <MdFavorite className="fill-red-500" />
+            ) : (
+              <MdFavoriteBorder />
+            )}
           </button>
         </div>
       </div>
