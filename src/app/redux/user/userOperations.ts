@@ -60,7 +60,7 @@ export const deleteUser = createAsyncThunk<
 });
 
 export const addFavorites = createAsyncThunk<
-  { favorites: IProducts[] },
+  IProducts,
   { goodId: string; prodData: IProducts },
   { rejectValue: string | string[] }
 >("user/addFav", async ({ goodId, prodData }, thunkAPI: any) => {
@@ -78,14 +78,18 @@ export const addFavorites = createAsyncThunk<
 });
 
 export const removeFavorites = createAsyncThunk<
-  { favorites: IProducts[] },
+  IProducts,
   string,
   { rejectValue: string | string[] }
 >("user/removeFav", async (goodId, thunkAPI: any) => {
   try {
-    const res = await axios.patch(`${baseURL}/${goodId}/remove`, {
-      withCredentials: true,
-    });
+    const res = await axios.patch(
+      `${baseURL}/${goodId}/remove`,
+      {},
+      {
+        withCredentials: true,
+      }
+    );
 
     return res.data;
   } catch (error: any) {

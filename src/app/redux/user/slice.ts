@@ -153,12 +153,9 @@ const userSlice = createSlice({
       })
       .addCase(
         addFavorites.fulfilled,
-        (
-          state: UserInitialState,
-          action: PayloadAction<{ favorites: IProducts[] | undefined }>
-        ) => {
+        (state: UserInitialState, action: PayloadAction<IProducts>) => {
           state.isLoading = false;
-          state.user.favorites = action.payload.favorites || [];
+          state.user.favorites.push(action.payload);
         }
       )
       .addCase(
@@ -175,12 +172,14 @@ const userSlice = createSlice({
       })
       .addCase(
         removeFavorites.fulfilled,
-        (
-          state: UserInitialState,
-          action: PayloadAction<{ favorites: IProducts[] | undefined }>
-        ) => {
+        (state: UserInitialState, action: PayloadAction<IProducts>) => {
           state.isLoading = false;
-          state.user.favorites = action.payload.favorites || [];
+          const deleteIndex = state.user.favorites.findIndex(
+            (fav) => fav.id == action.payload.id
+          );
+          if (deleteIndex !== -1) {
+            state.user.favorites.splice(deleteIndex, 1);
+          }
         }
       )
       .addCase(
