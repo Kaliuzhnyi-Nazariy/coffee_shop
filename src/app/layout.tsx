@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import ReduxLayout from "./layouts/ReduxLayout";
-import Menu from "./components/home/menu/Menu";
+import Menu from "./components/menu/Menu";
 import Footer from "./components/home/Footer";
 import ReactQueryLayout from "./layouts/ReactQueryLayout";
 import { Toaster } from "react-hot-toast";
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased flex flex-col min-h-screen`}
         id="root"
       >
         <ReduxLayout>

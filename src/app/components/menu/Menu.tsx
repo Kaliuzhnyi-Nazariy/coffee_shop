@@ -3,6 +3,8 @@ import { IoIosMenu } from "react-icons/io";
 import MenuOpen from "./MenuOpen";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useAppDispatch } from "@/app/redux/hooks";
+import { getUser } from "@/app/redux/user/userOperations";
 
 const Menu = () => {
   const pathname = usePathname();
@@ -14,6 +16,8 @@ const Menu = () => {
     if (link === "auth/signin") return "";
     if (link === "auth/signup") return "";
     if (link === "our-products") return "Product";
+    if (link === "checkout-details") return "Checkout Details";
+    if (link === "wishlist") return "Wishlist";
   };
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -45,6 +49,12 @@ const Menu = () => {
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
   }, [isMenuOpen]);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
 
   return (
     <div className={`absolute z-10 w-full h-[66px]  `}>

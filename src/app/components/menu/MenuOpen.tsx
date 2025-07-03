@@ -6,18 +6,12 @@ import { IoMdClose } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
 import { FaRegBell, FaBagShopping } from "react-icons/fa6";
 import { FaRegHeart, FaRegCopyright } from "react-icons/fa";
-import { useAppDispatch } from "@/app/redux/hooks";
-import { getUser } from "@/app/redux/user/userOperations";
 import { useSelector } from "react-redux";
 import { userInfo } from "@/app/redux/user/selectors";
+import Link from "next/link";
 
 const MenuOpen = ({ onClose }: { onClose: () => void }) => {
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
 
   const user = useSelector(userInfo);
 
@@ -71,9 +65,15 @@ const MenuOpen = ({ onClose }: { onClose: () => void }) => {
                 <p>Notification</p>
                 <FaRegBell className="w-5 h-5" />
               </li>
-              <li className="hover:text-white cursor-pointer flex justify-between">
-                <p>Wishlist</p>
-                <FaRegHeart className="w-5 h-5" />
+              <li className="hover:text-white cursor-pointer">
+                <Link
+                  href={"/wishlist"}
+                  className="flex justify-between"
+                  onClick={() => onClose()}
+                >
+                  <p>Wishlist</p>
+                  <FaRegHeart className="w-5 h-5" />
+                </Link>
               </li>
               <li className="hover:text-white cursor-pointer flex justify-between">
                 <p>Cart</p>
