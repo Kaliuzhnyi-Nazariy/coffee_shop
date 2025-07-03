@@ -2,6 +2,7 @@
 
 import { userIsLoggedIn } from "@/app/redux/user/selectors";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -13,7 +14,9 @@ const Footer = () => {
         isShown ? "flex" : "hidden"
       }`}
     >
-      <Image src="/cafelogo.png" alt="logo of cafe" width={34} height={52} />
+      <Link href={"/home"}>
+        <Image src="/cafelogo.png" alt="logo of cafe" width={34} height={52} />
+      </Link>
       <ul className="mt-2">
         <li>
           <a href="mailto:damiun@coffee.co.id">damiun@coffee.co.id</a>
@@ -28,7 +31,9 @@ const Footer = () => {
 
           <ul className="mt-[14px] font-light flex flex-col gap-2">
             <li>Blog</li>
-            <li>Product</li>
+            <li>
+              <Link href={"/our-products"}>Product</Link>
+            </li>
             <li>Booking</li>
           </ul>
         </li>
